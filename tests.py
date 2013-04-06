@@ -27,7 +27,7 @@ class TestRss2(unittest.TestCase):
                 user=sentinel.USER,
                 password=sentinel.PASSWORD)
 
-        Reddit.assert_called_once_with("rss2reddit")
+        Reddit.assert_called_once_with(rss2reddit.USER_AGENT)
         _agent = Reddit.return_value
         self.assertEquals(_agent.submit.call_args_list,
             [
@@ -59,8 +59,8 @@ class TestRss2(unittest.TestCase):
                 password=sentinel.PASSWORD,
                 since=datetime.datetime(2001, 6, 29, 0, 0, 0))
 
-        Reddit.assert_called_once_with("rss2reddit")
         _agent = Reddit.return_value
+        Reddit.assert_called_once_with(rss2reddit.USER_AGENT)
         self.assertEquals(_agent.submit.call_args_list,
             [
                 call(sentinel.REDDIT, _entry_2.title, url=_entry_2.link),
@@ -90,7 +90,7 @@ class TestRss2(unittest.TestCase):
                 password=sentinel.PASSWORD,
                 since=datetime.datetime(2001, 6, 29, 0, 0, 0))
 
-        Reddit.assert_called_once_with("rss2reddit")
+        Reddit.assert_called_once_with(rss2reddit.USER_AGENT)
         _agent = Reddit.return_value
         self.assertEquals(_agent.submit.call_args_list,
             [
@@ -124,7 +124,7 @@ class TestRss2(unittest.TestCase):
                 password=sentinel.PASSWORD,
                 since=datetime.datetime(2001, 6, 29, 0, 0, 0))
 
-        Reddit.assert_called_once_with("rss2reddit")
+        Reddit.assert_called_once_with(rss2reddit.USER_AGENT)
         _agent = Reddit.return_value
         self.assertEquals(_agent.submit.call_args_list,
             [

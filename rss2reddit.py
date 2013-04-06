@@ -8,6 +8,9 @@ import logging
 import feedparser
 import praw
 
+USER_AGENT = "rss2reddit"
+
+
 logging.basicConfig(
         filename="rss2reddit.log",
         level=logging.INFO,
@@ -16,27 +19,26 @@ logging.basicConfig(
 
 def digest(reddit="", url="", user="", password="", since=None):
     logging.info((reddit, url, user, password, since))
-    _agent = praw.Reddit("rss2reddit")
+    _agent = praw.Reddit(USER_AGENT)
     _agent.login(user, password)
 
-    _stream = feedparser.parse(url)
+    _feed = feedparser.parse(url)
 
-    for _post in _stream.entries:
-        if since:
-            try:
-                _published = datetime.datetime.strptime(_post.published[:-6], "%a, %d %b %Y %H:%M:%S")
-            except ValueError:
-                _example = "2001-06-30T14:17:15"
-                _published = datetime.datetime.strptime(_post.published[:len(_example)], "%Y-%m-%dT%H:%M:%S")
-            except BaseException:
-                _example = "2001-06-30T14:17:15"
-                _published = datetime.datetime.strptime(_post.date[:len(_example)], "%Y-%m-%dT%H:%M:%S")
-            if _published >= since:
+    for _post in _feed.entries:
+        if not since or _date(_post) >= since:
                 logging.info("Submitting %s (%s)", _post.title, _post.link)
                 _agent.submit(reddit, _post.title, url=_post.link)
-        else:
-            logging.info("Submitting %s (%s)", _post.title, _post.link)
-            _agent.submit(reddit, _post.title, url=_post.link)
+
+
+def _date(post):
+    try:
+        return datetime.datetime.strptime(post.published[:-6], "%a, %d %b %Y %H:%M:%S")
+    except ValueError:
+        _example = "2001-06-30T14:17:15"
+        return datetime.datetime.strptime(post.published[:len(_example)], "%Y-%m-%dT%H:%M:%S")
+    except BaseException:
+        _example = "2001-06-30T14:17:15"
+        return datetime.datetime.strptime(post.date[:len(_example)], "%Y-%m-%dT%H:%M:%S")
 
 
 if __name__ == "__main__":
