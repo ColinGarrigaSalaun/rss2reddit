@@ -28,6 +28,9 @@ def digest(reddit="", url="", user="", password="", since=None):
             except ValueError:
                 _example = "2001-06-30T14:17:15"
                 _published = datetime.datetime.strptime(_post.published[:len(_example)], "%Y-%m-%dT%H:%M:%S")
+            except BaseException:
+                _example = "2001-06-30T14:17:15"
+                _published = datetime.datetime.strptime(_post.date[:len(_example)], "%Y-%m-%dT%H:%M:%S")
             if _published >= since:
                 logging.info("Submitting %s (%s)", _post.title, _post.link)
                 _agent.submit(reddit, _post.title, url=_post.link)
