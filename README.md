@@ -26,7 +26,7 @@ Pour ne soumettre que les billets publiés sur les deux derniers jours :
 
 Pour récupérer une liste de flux RSS d'un fichier :
 
-    $ python rss2reddit.py --reddit agilefr --user agilefrbot --password **** --url-file=agilefr.txt --days=1
+    $ python rss2reddit.py --reddit agilefr --user agilefrbot --password **** --url-file agilefr.txt --days=1
 
 
 # Tests
