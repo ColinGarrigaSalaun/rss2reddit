@@ -1,0 +1,6 @@
+http://wokier.blogspot.com/feeds/posts/default
+http://agilarium.blogspot.com/feeds/posts/default
+http://feeds.feedburner.com/Agilitateur-fr
+http://blog.institut-agile.fr/feeds/posts/default
+http://etienne.charignon.free.fr/spip/spip.php?page=backend
+http://emmanuelchenu.blogspot.com/feeds/posts/default

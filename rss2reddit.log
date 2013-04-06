@@ -1,0 +1,69 @@
+2013-04-06 17:25:02,021 INFO ('agilefr', 'http://etienne.charignon.free.fr/spip/spip.php?page=backend', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 1, 6, 17, 25, 2, 21411))
+2013-04-06 17:25:02,053 INFO Starting new HTTP connection (1): csil.cs.ucsb.edu
+2013-04-06 17:25:03,539 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:25:05,539 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:25:06,344 ERROR object has no attribute 'published'
+2013-04-06 17:42:55,532 INFO ('agilefr', '', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 42, 55, 532802))
+2013-04-06 17:42:55,543 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:42:57,534 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:42:57,730 INFO ('agilefr', '', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 42, 55, 532802))
+2013-04-06 17:42:59,535 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:43:01,534 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:43:01,751 INFO ('agilefr', '', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 42, 55, 532802))
+2013-04-06 17:43:03,535 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:43:05,534 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:43:05,761 INFO ('agilefr', '', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 42, 55, 532802))
+2013-04-06 17:43:07,535 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:43:12,012 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:44:31,927 INFO ('agilefr', 'http://wokier.blogspot.com/feeds/posts/default\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 44, 31, 927735))
+2013-04-06 17:44:31,932 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:44:33,929 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:44:34,604 INFO ('agilefr', 'http://agilarium.blogspot.com/feeds/posts/default\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 44, 31, 927735))
+2013-04-06 17:44:35,930 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:44:37,929 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:44:38,654 INFO ('agilefr', 'http://feeds.feedburner.com/Agilitateur-fr\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 44, 31, 927735))
+2013-04-06 17:44:39,930 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:44:41,929 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:44:43,244 INFO ('agilefr', 'http://etienne.charignon.free.fr/spip/spip.php?page=backend\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 44, 31, 927735))
+2013-04-06 17:44:43,929 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:44:45,929 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:44:46,543 ERROR object has no attribute 'published'
+2013-04-06 17:46:14,251 INFO ('agilefr', 'http://wokier.blogspot.com/feeds/posts/default\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 46, 14, 251852))
+2013-04-06 17:46:14,257 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:46:16,253 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:46:17,664 INFO ('agilefr', 'http://agilarium.blogspot.com/feeds/posts/default\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 46, 14, 251852))
+2013-04-06 17:46:18,253 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:46:20,253 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:46:20,919 INFO ('agilefr', 'http://feeds.feedburner.com/Agilitateur-fr\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 46, 14, 251852))
+2013-04-06 17:46:22,253 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:46:24,253 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:46:24,854 INFO ('agilefr', 'http://etienne.charignon.free.fr/spip/spip.php?page=backend\n', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 46, 14, 251852))
+2013-04-06 17:46:26,254 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:46:32,480 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:46:32,867 ERROR object has no attribute 'published'
+2013-04-06 17:48:27,016 INFO ('agilefr', 'http://wokier.blogspot.com/feeds/posts/default', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 48, 27, 16566))
+2013-04-06 17:48:27,027 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:48:30,836 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:48:31,395 INFO ('agilefr', 'http://agilarium.blogspot.com/feeds/posts/default', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 48, 27, 16566))
+2013-04-06 17:48:32,838 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:48:34,837 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:48:35,464 INFO ('agilefr', 'http://feeds.feedburner.com/Agilitateur-fr', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 48, 27, 16566))
+2013-04-06 17:48:36,838 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:48:38,837 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:48:39,733 INFO ('agilefr', 'http://etienne.charignon.free.fr/spip/spip.php?page=backend', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 48, 27, 16566))
+2013-04-06 17:48:40,838 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:48:42,837 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:48:44,011 ERROR object has no attribute 'published'
+2013-04-06 17:49:45,117 INFO ('agilefr', 'http://wokier.blogspot.com/feeds/posts/default', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 49, 45, 117538))
+2013-04-06 17:49:45,128 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:49:47,119 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:49:47,784 INFO ('agilefr', 'http://agilarium.blogspot.com/feeds/posts/default', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 49, 45, 117538))
+2013-04-06 17:49:49,118 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:49:51,119 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:49:51,793 INFO ('agilefr', 'http://feeds.feedburner.com/Agilitateur-fr', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 49, 45, 117538))
+2013-04-06 17:49:53,118 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:49:55,118 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:49:56,443 INFO ('agilefr', 'http://etienne.charignon.free.fr/spip/spip.php?page=backend', 'agilefrbot', 'agilefrbothasnoshame', datetime.datetime(2013, 4, 5, 17, 49, 45, 117538))
+2013-04-06 17:49:57,120 INFO Starting new HTTPS connection (1): ssl.reddit.com
+2013-04-06 17:49:59,119 INFO Starting new HTTP connection (1): www.reddit.com
+2013-04-06 17:49:59,992 ERROR object has no attribute 'published'
