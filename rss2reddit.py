@@ -32,13 +32,23 @@ def digest(reddit="", url="", user="", password="", since=None):
 
 def _date(post):
     try:
-        return datetime.datetime.strptime(post.published[:-6], "%a, %d %b %Y %H:%M:%S")
+        _example  = "Thu, 28 Jun 2001 14:17:15 +0000"
+        _parsable = "Thu, 28 Jun 2001 14:17:15"
+        return datetime.datetime.strptime(
+                post.published[:len(_parsable)],
+                "%a, %d %b %Y %H:%M:%S")
     except ValueError:
-        _example = "2001-06-30T14:17:15"
-        return datetime.datetime.strptime(post.published[:len(_example)], "%Y-%m-%dT%H:%M:%S")
+        _example  = "2001-06-28T14:17:15.000"
+        _parsable = "2001-06-28T14:17:15"
+        return datetime.datetime.strptime(
+                post.published[:len(_parsable)],
+                "%Y-%m-%dT%H:%M:%S")
     except BaseException:
-        _example = "2001-06-30T14:17:15"
-        return datetime.datetime.strptime(post.date[:len(_example)], "%Y-%m-%dT%H:%M:%S")
+        _example  = "2001-06-28T14:17:15.000"
+        _parsable = "2001-06-28T14:17:15"
+        return datetime.datetime.strptime(
+                post.date[:len(_parsable)],
+                "%Y-%m-%dT%H:%M:%S")
 
 
 if __name__ == "__main__":
