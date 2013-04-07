@@ -1,13 +1,17 @@
 http://agilarium.blogspot.com/feeds/posts/default
+http://blog.avoustin.com/feed/
 http://blog.crafting-labs.fr/?feed/atom
 http://blog.institut-agile.fr/feeds/posts/default
 http://colingarrigasalaun.blogspot.com/feeds/posts/default
 http://etienne.charignon.free.fr/spip/spip.php?page=backend
 http://emmanuelchenu.blogspot.com/feeds/posts/default
 http://feeds.feedburner.com/Agilitateur-fr
+http://feeds.feedburner.com/lcarbonnaux?format=xml
 http://feeds.feedburner.com/MorisseauConsulting
 http://feeds.feedburner.com/slicesofit
+http://guillaumecollic.com/feed/
 http://raphael.pierquin.com/blog/feed/
 http://thierrycros.net/?feed/atom
 http://wokier.blogspot.com/feeds/posts/default
+http://www.areyouagile.com/atom.xml
 http://www.aubryconseil.com/feed/rss2
