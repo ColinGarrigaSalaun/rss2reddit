@@ -23,4 +23,3 @@ http://www.areyouagile.com/atom.xml
 http://www.aubryconseil.com/feed/rss2
 http://www.barreverte.fr/feed
 http://www.bouzin-agile.fr/?feed/atom
-http://www.michaelborde.fr/feeds/posts/default
