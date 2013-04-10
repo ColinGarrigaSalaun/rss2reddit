@@ -159,3 +159,49 @@ class TestRss2(unittest.TestCase):
                 ])
 
 
+    @patch("__builtin__.open")
+    @patch("feedparser.parse")
+    @patch("praw.Reddit")
+    def test_with_file(self, Reddit, parse, _open):
+        _entry_1 = Mock()
+        _entry_2 = Mock()
+        _entry_3 = Mock()
+        _entry_4 = Mock()
+        _feed_1 = Mock()
+        _feed_1.entries = [
+                _entry_1,
+                _entry_2,
+                ]
+        _feed_2 = Mock()
+        _feed_2.entries = [
+                _entry_3,
+                _entry_4,
+                ]
+        parse.side_effect = lambda url: {
+                "url_1": _feed_1,
+                "url_2": _feed_2,
+                }.get(url)
+
+        _file = _open.return_value.__enter__.return_value
+        _file.__iter__.return_value = [
+                "url_1\n",
+                "url_2\n"
+                ]
+        
+        rss2reddit.digest(
+                reddit=sentinel.REDDIT,
+                user=sentinel.USER,
+                password=sentinel.PASSWORD,
+                file_url=sentinel.FILENAME)
+
+        Reddit.assert_called_once_with(rss2reddit.USER_AGENT)
+        _agent = Reddit.return_value
+        self.assertEquals(_agent.submit.call_args_list,
+            [
+                call(sentinel.REDDIT, _entry_1.title, url=_entry_1.link),
+                call(sentinel.REDDIT, _entry_2.title, url=_entry_2.link),
+                call(sentinel.REDDIT, _entry_3.title, url=_entry_3.link),
+                call(sentinel.REDDIT, _entry_4.title, url=_entry_4.link),
+                ])
+
+
