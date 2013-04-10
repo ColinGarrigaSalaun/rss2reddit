@@ -1,1 +1,4 @@
 *.py[cod]
+.ropeproject
+virtualenv
+rss2reddit.log
