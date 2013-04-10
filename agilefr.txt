@@ -5,8 +5,11 @@ http://blog.agileit.fr/feed/
 http://blog.avoustin.com/feed/
 http://blog.crafting-labs.fr/?feed/atom
 http://blog.institut-agile.fr/feeds/posts/default
+http://blog.lucbizeul.fr/feed/atom
 http://colingarrigasalaun.blogspot.com/feeds/posts/default
+http://www.dotnetguru2.org/gse/index.php?tempskin=_rss2
 http://emmanuelchenu.blogspot.com/feeds/posts/default
+http://ericthn.fr/feed/
 http://etienne.charignon.free.fr/spip/spip.php?page=backend
 http://fabien.bezagu.free.fr/rss.php
 http://feeds.feedburner.com/Agilitateur-fr
@@ -15,7 +18,9 @@ http://feeds.feedburner.com/MorisseauConsulting
 http://feeds.feedburner.com/Qualitystreet
 http://feeds.feedburner.com/slicesofit
 http://guillaumecollic.com/feed/
+http://pierrefauvel.wordpress.com/feed/
 http://raphael.pierquin.com/blog/feed/
+http://testdriveninformation.blogspot.com/feeds/posts/default
 http://thierrycros.net/?feed/atom
 http://wokier.blogspot.com/feeds/posts/default
 http://www.agilex.fr/feed/
@@ -23,3 +28,5 @@ http://www.areyouagile.com/atom.xml
 http://www.aubryconseil.com/feed/rss2
 http://www.barreverte.fr/feed
 http://www.bouzin-agile.fr/?feed/atom
+http://www.regismedina.com/rss.xml
+http://yannick.ameur.free.fr/dotclear/index.php?feed/rss2
