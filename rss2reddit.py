@@ -19,15 +19,20 @@ logging.basicConfig(
 
 def digest(reddit="", url="", user="", password="", since=None):
     logging.info((reddit, url, user, password, since))
-    _agent = praw.Reddit(USER_AGENT)
-    _agent.login(user, password)
 
     _feed = feedparser.parse(url)
-
-    for _post in _feed.entries:
-        if not since or _date(_post) >= since:
-                logging.info("Submitting %s (%s)", _post.title, _post.link)
-                _agent.submit(reddit, _post.title, url=_post.link)
+    _posts = [
+            _post
+            for _post in _feed.entries
+            if not since or _date(_post) >= since
+            ]
+    
+    if _posts:
+        _agent = praw.Reddit(USER_AGENT)
+        _agent.login(user, password)
+        for _post in _posts:
+            logging.info("Submitting %s (%s)", _post.title, _post.link)
+            _agent.submit(reddit, _post.title, url=_post.link)
 
 
 def _date(post):
