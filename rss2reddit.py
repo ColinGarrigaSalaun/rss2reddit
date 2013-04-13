@@ -46,24 +46,16 @@ def _urls(url, file_url):
 
 
 def _date(post):
-    try:
-        _example  = "Thu, 28 Jun 2001 14:17:15 +0000"
-        _parsable = "Thu, 28 Jun 2001 14:17:15"
-        return datetime.datetime.strptime(
-                post.published[:len(_parsable)],
-                "%a, %d %b %Y %H:%M:%S")
-    except ValueError:
-        _example  = "2001-06-28T14:17:15.000"
-        _parsable = "2001-06-28T14:17:15"
-        return datetime.datetime.strptime(
-                post.published[:len(_parsable)],
-                "%Y-%m-%dT%H:%M:%S")
-    except BaseException:
-        _example  = "2001-06-28T14:17:15.000"
-        _parsable = "2001-06-28T14:17:15"
-        return datetime.datetime.strptime(
-                post.date[:len(_parsable)],
-                "%Y-%m-%dT%H:%M:%S")
+    for _example, _format, _attribute in (
+            ("Thu, 28 Jun 2001 14:17:15", "%a, %d %b %Y %H:%M:%S", "published"),
+            ("2001-06-28T14:17:15",       "%Y-%m-%dT%H:%M:%S",     "published"),
+            ("2001-06-28T14:17:15",       "%Y-%m-%dT%H:%M:%S",     "date")):
+        try:
+            _date = getattr(post, _attribute)
+            _parsable_date = _date[:len(_example)]
+            return datetime.datetime.strptime(_parsable_date, _format)
+        except BaseException:
+            pass
 
 
 if __name__ == "__main__":
