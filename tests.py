@@ -11,15 +11,8 @@ class TestRss2(unittest.TestCase):
     @patch("feedparser.parse")
     @patch("praw.Reddit")
     def test(self, Reddit, parse):
-        _entry_1 = Mock()
-        _entry_2 = Mock()
-        _entry_3 = Mock()
         _feed = parse.return_value
-        _feed.entries = [
-                _entry_1,
-                _entry_2,
-                _entry_3,
-                ]
+        _feed.entries = [_entry_1, _entry_2, _entry_3] = [Mock(), Mock(), Mock()]
         
         rss2reddit.digest(
                 reddit=sentinel.REDDIT,
@@ -36,21 +29,18 @@ class TestRss2(unittest.TestCase):
                 call(sentinel.REDDIT, _entry_3.title, url=_entry_3.link),
                 ])
 
+
     @patch("feedparser.parse")
     @patch("praw.Reddit")
-    def test_since(self, Reddit, parse):
-        _entry_1 = Mock()
-        _entry_1.published = "Thu, 28 Jun 2001 14:17:15 +0000"
-        _entry_2 = Mock()
-        _entry_2.published = "Thu, 29 Jun 2001 14:17:15 +0000"
-        _entry_3 = Mock()
-        _entry_3.published = "Thu, 30 Jun 2001 14:17:15 +0000"
+    @patch("rss2reddit._date")
+    def test_since(self, _date, Reddit, parse):
         _feed = parse.return_value
-        _feed.entries = [
-                _entry_1,
-                _entry_2,
-                _entry_3,
-                ]
+        _feed.entries = [_entry_1, _entry_2, _entry_3] = [Mock(), Mock(), Mock()]
+        _date.side_effect = lambda p: {
+                _entry_1: datetime.datetime(2001, 6, 28, 14, 17, 15),
+                _entry_2: datetime.datetime(2001, 6, 29, 14, 17, 15),
+                _entry_3: datetime.datetime(2001, 6, 30, 14, 17, 15),
+                }[p]
         
         rss2reddit.digest(
                 reddit=sentinel.REDDIT,
@@ -67,21 +57,18 @@ class TestRss2(unittest.TestCase):
                 call(sentinel.REDDIT, _entry_3.title, url=_entry_3.link),
                 ])
 
+
     @patch("feedparser.parse")
     @patch("praw.Reddit")
-    def test_since__and_empty(self, Reddit, parse):
-        _entry_1 = Mock()
-        _entry_1.published = "Thu, 28 Jun 2001 14:17:15 +0000"
-        _entry_2 = Mock()
-        _entry_2.published = "Thu, 29 Jun 2001 14:17:15 +0000"
-        _entry_3 = Mock()
-        _entry_3.published = "Thu, 30 Jun 2001 14:17:15 +0000"
+    @patch("rss2reddit._date")
+    def test_since__and_empty(self, _date, Reddit, parse):
         _feed = parse.return_value
-        _feed.entries = [
-                _entry_1,
-                _entry_2,
-                _entry_3,
-                ]
+        _feed.entries = [_entry_1, _entry_2, _entry_3] = [Mock(), Mock(), Mock()]
+        _date.side_effect = lambda p: {
+                _entry_1: datetime.datetime(2001, 6, 28, 14, 17, 15),
+                _entry_2: datetime.datetime(2001, 6, 29, 14, 17, 15),
+                _entry_3: datetime.datetime(2001, 6, 30, 14, 17, 15),
+                }[p]
         
         rss2reddit.digest(
                 reddit=sentinel.REDDIT,
@@ -93,100 +80,20 @@ class TestRss2(unittest.TestCase):
         self.assertFalse(Reddit.called)
 
 
-    @patch("feedparser.parse")
-    @patch("praw.Reddit")
-    def test_since__with_other_date_format(self, Reddit, parse):
-        _entry_1 = Mock()
-        _entry_1.published = "2001-06-28T14:17:15.000"
-        _entry_2 = Mock()
-        _entry_2.published = "2001-06-29T14:17:15.000"
-        _entry_3 = Mock()
-        _entry_3.published = "2001-06-30T14:17:15.000"
-        _feed = parse.return_value
-        _feed.entries = [
-                _entry_1,
-                _entry_2,
-                _entry_3,
-                ]
-        
-        rss2reddit.digest(
-                reddit=sentinel.REDDIT,
-                url=sentinel.URL,
-                user=sentinel.USER,
-                password=sentinel.PASSWORD,
-                since=datetime.datetime(2001, 6, 29, 0, 0, 0))
-
-        Reddit.assert_called_once_with(rss2reddit.USER_AGENT)
-        _agent = Reddit.return_value
-        self.assertEquals(_agent.submit.call_args_list,
-            [
-                call(sentinel.REDDIT, _entry_2.title, url=_entry_2.link),
-                call(sentinel.REDDIT, _entry_3.title, url=_entry_3.link),
-                ])
-
-    @patch("feedparser.parse")
-    @patch("praw.Reddit")
-    def test_since__with_another_date_format(self, Reddit, parse):
-        _entry_1 = Mock()
-        _entry_1.date = "2001-06-28T14:17:15Z"
-        _entry_1.published.side_effect = AttributeError()
-        _entry_2 = Mock()
-        _entry_2.date = "2001-06-29T14:17:15Z"
-        _entry_2.published.side_effect = AttributeError()
-        _entry_3 = Mock()
-        _entry_3.date = "2001-06-30T14:17:15Z"
-        _entry_3.published.side_effect = AttributeError()
-        _feed = parse.return_value
-        _feed.entries = [
-                _entry_1,
-                _entry_2,
-                _entry_3,
-                ]
-        
-        rss2reddit.digest(
-                reddit=sentinel.REDDIT,
-                url=sentinel.URL,
-                user=sentinel.USER,
-                password=sentinel.PASSWORD,
-                since=datetime.datetime(2001, 6, 29, 0, 0, 0))
-
-        Reddit.assert_called_once_with(rss2reddit.USER_AGENT)
-        _agent = Reddit.return_value
-        self.assertEquals(_agent.submit.call_args_list,
-            [
-                call(sentinel.REDDIT, _entry_2.title, url=_entry_2.link),
-                call(sentinel.REDDIT, _entry_3.title, url=_entry_3.link),
-                ])
-
-
     @patch("__builtin__.open")
     @patch("feedparser.parse")
     @patch("praw.Reddit")
     def test_with_file(self, Reddit, parse, _open):
-        _entry_1 = Mock()
-        _entry_2 = Mock()
-        _entry_3 = Mock()
-        _entry_4 = Mock()
         _feed_1 = Mock()
-        _feed_1.entries = [
-                _entry_1,
-                _entry_2,
-                ]
+        _feed_1.entries = [_entry_1, _entry_2] = [Mock(), Mock()]
         _feed_2 = Mock()
-        _feed_2.entries = [
-                _entry_3,
-                _entry_4,
-                ]
+        _feed_2.entries = [_entry_3, _entry_4] = [Mock(), Mock()]
+        _file = _open.return_value.__enter__.return_value
+        _file.__iter__.return_value = ["url_1\n", "url_2\n"]
         parse.side_effect = lambda url: {
                 "url_1": _feed_1,
                 "url_2": _feed_2,
                 }.get(url)
-
-        _file = _open.return_value.__enter__.return_value
-        _file.__iter__.return_value = [
-                "url_1\n",
-                "url_2\n"
-                ]
         
         rss2reddit.digest(
                 reddit=sentinel.REDDIT,
@@ -205,3 +112,20 @@ class TestRss2(unittest.TestCase):
                 ])
 
 
+
+class TestDate(unittest.TestCase):
+
+    def test(self):
+        for _example, _attribute in (
+                ("Thu, 28 Jun 2001 14:17:15 +0000", "published"),
+                ("2001-06-28T14:17:15.000",         "published"),
+                ("2001-06-28T14:17:15Z",            "date"),):
+            _entry = Mock()
+            _entry.published.side_effect = AttributeError()
+            _entry.date.side_effect = AttributeError()
+            setattr(_entry, _attribute, _example)
+
+            _datetime = rss2reddit._date(_entry)
+
+            self.assertEquals(datetime.datetime(2001, 6, 28, 14, 17, 15), _datetime)
+            
